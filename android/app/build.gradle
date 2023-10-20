@@ -47,18 +47,24 @@ android {
         applicationId "com.example.nagaoka_list_items"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 16
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
-    buildTypes {
+    signingConfigs {
         release {
             keyAlias 'thiago.com'
             keyPassword '123456'
-            storeFile file('./keys_google_play/list_of_items_key.ks')
+            storeFile file('./list_of_items_google_play/list_of_items_key.jks')
             storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
         }
     }
 }
