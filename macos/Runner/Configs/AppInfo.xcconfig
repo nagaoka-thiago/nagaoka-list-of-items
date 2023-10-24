@@ -8,7 +8,7 @@
 PRODUCT_NAME = nagaoka_list_items
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.nagaokaListItems
+PRODUCT_BUNDLE_IDENTIFIER = com.nagaoka.nagaokaListItems
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 com.nagaoka. All rights reserved.

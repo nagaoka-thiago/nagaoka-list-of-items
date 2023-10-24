@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nagaoka_list_items">
+    package="com.nagaoka.nagaoka_list_items">
    <application
         android:label="Nagaoka\'s items\' list"
         android:name="${applicationName}"
