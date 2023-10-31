@@ -78,14 +78,14 @@ class _FormPageState extends State<FormPage> {
 
               if(result) {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Item saved on Isar')));
-                Modular.to.navigate('/');
+                Modular.to.navigate('/home');
               }
               else {
                 ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error')));
               }
             }, child: Text(widget.itemEntity != null ? 'Edit' : 'Add'))),
             TextButton(onPressed: () async{
-              Modular.to.navigate('/');
+              Modular.to.navigate('/home');
             }, child: Text('Back')),
           ],
         )

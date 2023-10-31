@@ -41,6 +41,14 @@ mixin _$HomePageController on _HomePageController, Store {
     return _$deleteItemAsyncAction.run(() => super.deleteItem(itemEntity));
   }
 
+  late final _$signoutAsyncAction =
+      AsyncAction('_HomePageController.signout', context: context);
+
+  @override
+  Future<bool> signout() {
+    return _$signoutAsyncAction.run(() => super.signout());
+  }
+
   @override
   String toString() {
     return '''

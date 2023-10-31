@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "222984423696",
+    "project_id": "nagaoka-list-items-dbc68",
+    "storage_bucket": "nagaoka-list-items-dbc68.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222984423696:android:cfdeb9b53dcca97d0c7d95",
+        "android_client_info": {
+          "package_name": "com.nagaoka.nagaoka_list_items"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222984423696-th4qeqkqt953jlp0aaf6vfsk80p0rlk1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nagaoka.nagaoka_list_items",
+            "certificate_hash": "31d36b3e895a5b855a62fb03e94c5d35fa9d633a"
+          }
+        },
+        {
+          "client_id": "222984423696-ioe6u5vrr6jvvubblgk27aauh8vm88rc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRhxC6AcyrbrdqAJMAMrX33FiRrQkt-QY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222984423696-ioe6u5vrr6jvvubblgk27aauh8vm88rc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "222984423696-2u2o2rp5549sr117632qfvonajj12qrn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nagaoka.nagaokaListItems"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

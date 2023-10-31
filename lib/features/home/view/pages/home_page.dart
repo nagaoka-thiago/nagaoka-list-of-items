@@ -7,7 +7,8 @@ import '../controller/home_page_controller.dart';
 import 'widgets/add_button.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String displayName;
+  const HomePage({super.key, required this.displayName});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -25,7 +26,23 @@ class _HomePageState extends State<HomePage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (context) => Scaffold(appBar: AppBar(title: Text('List of items')),
+    return Observer(builder: (context) => Scaffold(appBar: AppBar(title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text('List of items'),
+          Text(widget.displayName, style: TextStyle(color: Colors.black, fontSize: 12)),
+        ],),
+        TextButton(onPressed: () async{
+          final result = await _controller.signout();
+
+          if(result) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Logged out!')));
+            Modular.to.navigate('/');
+          }
+        }, child: Text('Logout', style: TextStyle(color: Colors.black)))
+      ],
+    )),
                     body: SingleChildScrollView(
                       controller: _scrollController,
                       child: Column(children: [
