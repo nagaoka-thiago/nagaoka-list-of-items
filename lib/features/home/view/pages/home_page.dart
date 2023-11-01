@@ -33,13 +33,16 @@ class _HomePageState extends State<HomePage> {
           Text('List of items'),
           Text(widget.displayName, style: TextStyle(color: Colors.black, fontSize: 12)),
         ],),
+        _controller.isLoading ? CircularProgressIndicator() :
         TextButton(onPressed: () async{
+          _controller.changeIsLoading(true);
           final result = await _controller.signout();
 
           if(result) {
             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Logged out!')));
             Modular.to.navigate('/');
           }
+          _controller.changeIsLoading(false);
         }, child: Text('Logout', style: TextStyle(color: Colors.black)))
       ],
     )),

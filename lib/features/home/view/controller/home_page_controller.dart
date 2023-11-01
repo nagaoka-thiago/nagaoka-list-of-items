@@ -21,6 +21,14 @@ abstract class _HomePageController with Store {
   @observable
   ObservableList<ItemEntity> items = <ItemEntity>[].asObservable();
 
+  @observable
+  bool isLoading = false;
+
+  @action
+  void changeIsLoading(bool newVal) {
+    isLoading = newVal;
+  }
+
   @action
   Future<void> initializeList() async{
     items = ObservableList.of(await getItemsUsecase());

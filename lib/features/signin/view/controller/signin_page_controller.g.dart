@@ -25,6 +25,22 @@ mixin _$SigninPageController on _SigninPageController, Store {
     });
   }
 
+  late final _$isLoadingAtom =
+      Atom(name: '_SigninPageController.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$signinAsyncAction =
       AsyncAction('_SigninPageController.signin', context: context);
 
@@ -45,6 +61,17 @@ mixin _$SigninPageController on _SigninPageController, Store {
       ActionController(name: '_SigninPageController', context: context);
 
   @override
+  void changeIsLoading(bool newVal) {
+    final _$actionInfo = _$_SigninPageControllerActionController.startAction(
+        name: '_SigninPageController.changeIsLoading');
+    try {
+      return super.changeIsLoading(newVal);
+    } finally {
+      _$_SigninPageControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeDisplayName(String newValue) {
     final _$actionInfo = _$_SigninPageControllerActionController.startAction(
         name: '_SigninPageController.changeDisplayName');
@@ -58,7 +85,8 @@ mixin _$SigninPageController on _SigninPageController, Store {
   @override
   String toString() {
     return '''
-displayName: ${displayName}
+displayName: ${displayName},
+isLoading: ${isLoading}
     ''';
   }
 }

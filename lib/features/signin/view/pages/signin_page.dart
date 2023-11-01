@@ -20,7 +20,7 @@ class _SigninPageState extends State<SigninPage> {
 
     _controller.isSignedIn().then((isSigned) {
       if(isSigned) {
-        Modular.to.navigate('/home', arguments: _controller.displayName);
+        Modular.to.navigate('/home/', arguments: _controller.displayName);
       }
     });
   }
@@ -28,17 +28,19 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (context) => Scaffold(appBar: AppBar(title: const Text('Login')),
-                    body: Container(alignment: Alignment.center, child: TextButton.icon(label: const Text('Login with Google Account'), icon: const ImageIcon(AssetImage('assets/google_icon.png'), color: Colors.red), onPressed: () async{
+                    body: Container(alignment: Alignment.center, child: _controller.isLoading ? CircularProgressIndicator() : TextButton.icon(label: const Text('Login with Google Account'), icon: const ImageIcon(AssetImage('assets/google_icon.png'), color: Colors.red), onPressed: () async{
+                      _controller.changeIsLoading(true);
                       final signedin = await _controller.signin();
 
                       if(signedin) {
                         await _controller.isSignedIn();
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Logged in!')));
-                        Modular.to.navigate('/home', arguments: _controller.displayName);
+                        Modular.to.navigate('/home/', arguments: _controller.displayName);
                       }
                       else {
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('It is not logged in!')));
                       }
+                      _controller.changeIsLoading(false);
                     },),),
                   ));
   }

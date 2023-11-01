@@ -17,6 +17,14 @@ abstract class _SigninPageController with Store {
   @observable
   String displayName = '';
 
+  @observable
+  bool isLoading = false;
+
+  @action
+  void changeIsLoading(bool newVal) {
+    isLoading = newVal;
+  }
+
   @action
   void changeDisplayName(String newValue) {
     displayName = newValue;

@@ -25,6 +25,22 @@ mixin _$HomePageController on _HomePageController, Store {
     });
   }
 
+  late final _$isLoadingAtom =
+      Atom(name: '_HomePageController.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$initializeListAsyncAction =
       AsyncAction('_HomePageController.initializeList', context: context);
 
@@ -49,10 +65,25 @@ mixin _$HomePageController on _HomePageController, Store {
     return _$signoutAsyncAction.run(() => super.signout());
   }
 
+  late final _$_HomePageControllerActionController =
+      ActionController(name: '_HomePageController', context: context);
+
+  @override
+  void changeIsLoading(bool newVal) {
+    final _$actionInfo = _$_HomePageControllerActionController.startAction(
+        name: '_HomePageController.changeIsLoading');
+    try {
+      return super.changeIsLoading(newVal);
+    } finally {
+      _$_HomePageControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
-items: ${items}
+items: ${items},
+isLoading: ${isLoading}
     ''';
   }
 }
